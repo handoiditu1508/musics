@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Audio player</title>
+		<link rel="icon" href="./img/logo.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+
+		<link rel="stylesheet" href="./css/layout.min.css" />
+	</head>
+	<body>
+		<div class="flex-container column">
+			<!-- <input id="audioInput" type="file" accept="audio/*" multiple/> -->
+			<div class="spacing"></div>
+			<h4>now playing: <span id="fileName">nothing</span></h4>
+			<div class="player-container">
+				<audio id="player" class="player" controls>
+					Your browser does not support the audio element.
+				</audio>
+				<div class="flex-container">
+					<button id="previousBtn" class="button">Previous</button>
+					<button id="nextBtn" class="button">Next</button>
+					<button id="shuffleBtn" class="button">Shuffle</button>
+					<button id="unshuffleBtn" class="button">Unshuffle</button>
+					<input id="autoPlay" type="checkbox" title="Autoplay" checked/>
+					<input id="repeat" type="checkbox" title="Repeat" checked/>
+					<input id="timeBetweenSongs" type="number" min="0" max="9" title="Time Between Songs"/>
+				</div>
+				<ul id="playList" class="media-list">
+				</ul>
+			</div>
+		</div>
+
+		<script src="./js/filesList.js"></script>
+		<script src="./js/layout.min.js"></script>
+	</body>
+</html>
