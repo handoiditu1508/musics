@@ -26,6 +26,8 @@ files.forEach((file, index) => {
   const task = mm.parseFile(filePath, { duration: true });
   tasks.push(task);
   task.then((metadata) => {
+    const fileNameWithoutExt = path.basename(file, path.extname(file));
+
     songInfos.push({
       id: index + 1,
       name: file,
@@ -33,6 +35,7 @@ files.forEach((file, index) => {
       artists: metadata.common.artists || [],
       size: fileStats.size,
       duration: metadata.format.duration,
+      lyricsFile: fs.existsSync(`../lyrics/${fileNameWithoutExt}.txt`) ? `${fileNameWithoutExt}.txt` : undefined,
     });
   });
 });
